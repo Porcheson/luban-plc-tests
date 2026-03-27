@@ -22,7 +22,7 @@ export default defineConfig({
   ],
   // #endregion fav
 
-  base: '/procheson-doc/', //网站部署到github的vitepress这个仓库里
+  base: '/luban-plc-tests/', //网站部署到github的luban-plc-tests仓库
 
   // cleanUrls:true, //开启纯净链接无html
 
