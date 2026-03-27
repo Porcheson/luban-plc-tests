@@ -13,7 +13,7 @@
     "mermaid": "^11.7.0",
     "nprogress-v2": "^1.1.10",
     "sass": "^1.89.2",
-    "vitepress": "^1.6.4",
+    "vitepress": "^2.0.0-alpha.16",
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-plugin-google-analytics": "^1.0.2",
     "vitepress-plugin-group-icons": "^1.6.3",
@@ -22,7 +22,7 @@
     "vue": "^3.5.17",
     "xgplayer": "^3.0.22"
   },
-  "packageManager": "pnpm@8.6.10+sha1.98fe2755061026799bfa30e7dc8d6d48e9c3edf0",
+  "packageManager": "pnpm@8.6.10+sha512.10194f760ac0aa62032ba95f94d9bc33896e79618ce0f2892039e0b7abc9d7e7e6ce1dded38f36b60e769d48e2b86be4cd9dac9e0035f3518baa49d78401e022",
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev docs",

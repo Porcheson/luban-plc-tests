@@ -143,14 +143,6 @@ export default defineConfig({
 
   vite: {
     plugins: [
-      groupIconVitePlugin({
-        customIcon: {
-          ts: localIconLoader(import.meta.url, '../public/svg/typescript.svg'), //本地ts图标导入
-          md: localIconLoader(import.meta.url, '../public/svg/md.svg'), //markdown图标
-          css: localIconLoader(import.meta.url, '../public/svg/css.svg'), //css图标
-          js: 'logos:javascript', //js图标
-        },
-      }),
       [MermaidPlugin()]
     ]as any,
     optimizeDeps: {
@@ -162,6 +154,8 @@ export default defineConfig({
   },
 
   lastUpdated: true, //此配置不会立即生效，需git提交后爬取时间戳，没有安装git本地报错可以先注释
+
+  ignoreDeadLinks: true, //忽略死链接检查
 
   //主题配置
   themeConfig: {
@@ -229,7 +223,7 @@ export default defineConfig({
       {
         text: '📊 统计报告',
         items: [
-          { text: 'PLC指令测试套件统计报告', link: '/LubanTest/5.1 PLC指令测试套件统计报告' },
+          { text: 'PLC指令测试统计报告', link: '/LubanTest/5.1 PLC指令测试统计报告' },
           { text: '类型转换指令详细统计表', link: '/LubanTest/5.3 类型转换指令详细统计表' },
           { text: '项目成果汇报总结', link: '/LubanTest/5.4 项目成果汇报总结' },
         ],
@@ -239,70 +233,59 @@ export default defineConfig({
 
 
     //侧边栏
-    sidebar: [
-      {
-        //分组标题1
-        text: '介绍',
-        collapsed: false,
-        items: [
-          { text: '前言', link: '/1.1 前言' },
-        ],
-      },
-      {
-        text: '🧪 基础指令测试',
-        collapsed: false,
-        items: [
-          { text: '位操作指令', link: '/LubanTest/2.1 位操作指令测试说明' },
-          { text: '比较指令', link: '/LubanTest/2.2 比较指令测试说明' },
-          { text: '算术指令', link: '/LubanTest/2.3 算术指令测试说明' },
-          { text: '类型转换指令', link: '/LubanTest/2.4 类型转换指令测试说明' },
-          { text: '选择指令', link: '/LubanTest/2.5 选择指令测试说明' },
-        ],
-      },
-      {
-        text: '⚙️ 高级指令测试',
-        collapsed: false,
-        items: [
-          { text: '计数器指令', link: '/LubanTest/3.1 计数器指令测试说明' },
-          { text: '定时器指令', link: '/LubanTest/3.2 定时器指令测试说明' },
-          { text: '移位寄存器', link: '/LubanTest/3.3 移位寄存器指令测试说明' },
-          { text: '移位指令', link: '/LubanTest/3.4 位移指令测试说明' },
-          { text: '字符串操作', link: '/LubanTest/3.5 字符串操作指令测试说明' },
-          { text: '触发器指令', link: '/LubanTest/3.6 触发器指令测试说明' },
-        ],
-      },
-      {
-        text: '🔧 扩展指令测试',
-        collapsed: false,
-        items: [
-          { text: '扩展计数器', link: '/LubanTest/4.1 扩展计数器指令测试说明' },
-          { text: '扩展类型转换', link: '/LubanTest/4.2 扩展数据类型转换指令测试说明' },
-          { text: '数学函数', link: '/LubanTest/4.3 数学函数指令测试说明' },
-          { text: '时间算术', link: '/LubanTest/4.4 时间算术指令测试说明' },
-        ],
-      },
-      {
-        text: '📊 统计报告',
-        collapsed: false,
-        items: [
-          { text: 'PLC指令测试套件统计报告', link: '/LubanTest/5.1 PLC指令测试套件统计报告' },
-          { text: 'PLC指令测试套件明细表', link: '/LubanTest/5.2 PLC指令测试套件明细表' },
-          { text: '类型转换指令详细统计表', link: '/LubanTest/5.3 类型转换指令详细统计表' },
-          { text: '项目成果汇报总结', link: '/LubanTest/5.4 项目成果汇报总结' },
-        ],
-      },
-     // {
-      //   //分组标题3
-      //   text: '其他站点',
-      //   collapsed: false,
-      //   items: [
-      //     { text: 'VuePress', link: 'https://vuepress.yiov.top/' },
-      //     { text: '劝学录教程', link: 'https://yiov.top/' },
-      //     { text: '个人主页', link: 'https://yingyayi.com/' },
-      //   ],
-      // },
+sidebar: [
+  {
+    //分组标题1
+    text: '介绍',
+    collapsed: false,
+    items: [
+      { text: '📖 前言', link: '/1.1 前言' },
     ],
-
+  },
+  {
+    text: '🧪 基础指令测试',
+    collapsed: false,
+    items: [
+      { text: '⚙️ 位操作指令', link: '/LubanTest/2.1 位操作指令测试说明' },
+      { text: '⚖️ 比较指令', link: '/LubanTest/2.2 比较指令测试说明' },
+      { text: '➕ 算术指令', link: '/LubanTest/2.3 算术指令测试说明' },
+      { text: '🔄 类型转换指令', link: '/LubanTest/2.4 类型转换指令测试说明' },
+      { text: '🔘 选择指令', link: '/LubanTest/2.5 选择指令测试说明' },
+    ],
+  },
+  {
+    text: '⚙️ 高级指令测试',
+    collapsed: false,
+    items: [
+      { text: '🔢 计数器指令', link: '/LubanTest/3.1 计数器指令测试说明' },
+      { text: '⏱️ 定时器指令', link: '/LubanTest/3.2 定时器指令测试说明' },
+      { text: '📦 移位寄存器', link: '/LubanTest/3.3 移位寄存器指令测试说明' },
+      { text: '➡️ 移位指令', link: '/LubanTest/3.4 位移指令测试说明' },
+      { text: '🔤 字符串操作', link: '/LubanTest/3.5 字符串操作指令测试说明' },
+      { text: '🌀 触发器指令', link: '/LubanTest/3.6 触发器指令测试说明' },
+    ],
+  },
+  {
+    text: '🔧 扩展指令测试',
+    collapsed: false,
+    items: [
+      { text: '📈 扩展计数器', link: '/LubanTest/4.1 扩展计数器指令测试说明' },
+      { text: '🔄 扩展类型转换', link: '/LubanTest/4.2 扩展数据类型转换指令测试说明' },
+      { text: '📊 数学函数', link: '/LubanTest/4.3 数学函数指令测试说明' },
+      { text: '⏰ 时间算术', link: '/LubanTest/4.4 时间算术指令测试说明' },
+    ],
+  },
+  {
+    text: '📊 统计报告',
+    collapsed: false,
+    items: [
+      { text: '📋 PLC指令测试统计报告', link: '/LubanTest/5.1 PLC指令测试统计报告' },
+      { text: '📋 PLC指令测试明细表', link: '/LubanTest/5.2 PLC指令测试明细表' },
+      { text: '📋 类型转换指令详细统计表', link: '/LubanTest/5.3 类型转换指令详细统计表' },
+      { text: '🎯 项目成果汇报总结', link: '/LubanTest/5.4 项目成果汇报总结' },
+    ],
+  },
+],
 
 
     //Algolia搜索 - 注释掉以移除搜索功能
