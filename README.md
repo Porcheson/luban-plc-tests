@@ -26,10 +26,10 @@ Procheson PLC结构化文本指令测试报告平台
 
 ```bash
 # 克隆项目
-git clone https://github.com/wuhanheibao01/procheson-doc.git
+git clone https://github.com/Porcheson/luban-plc-tests.git
 
 # 进入项目目录
-cd procheson-doc
+cd luban-plc-tests
 
 # 安装依赖
 pnpm install
