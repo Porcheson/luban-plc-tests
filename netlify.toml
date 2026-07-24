@@ -1,6 +1,6 @@
 # Netlify 配置文件
 [build]
-  command = "npm install --legacy-peer-deps && npm run docs:build"
+  command = "npm run docs:build"
   publish = "docs/.vitepress/dist"
 
 [build.environment]
