@@ -2,20 +2,17 @@
 [build]
   command = "npm run docs:build"
   publish = "docs/.vitepress/dist"
-  base = "/"
 
 [build.environment]
-  NODE_ENV = "production"
-  NODE_VERSION = "20"
+  NODE_VERSION = "24"
+  NODE_ENV = "development"
 
-[headers]
-  for = "/*"
+[[headers]]
+  for = "/assets/*"
   [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
+    Cache-Control = "public, max-age=31536000, immutable"
 
-[redirects]
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

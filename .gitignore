@@ -31,6 +31,7 @@ yarn-error.log*
 
 # IDE
 .vscode/
+.vs/
 .idea/
 *.swp
 *.swo
@@ -46,3 +47,4 @@ docs/.vitepress/cache/
 # 临时文件
 *.tmp
 *.temp
+.gitignore_*
